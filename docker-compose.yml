@@ -6,6 +6,7 @@ services:
       - ./registry-data:/var/lib/registry
     networks:
       - registry-ui-net
+    restart: always
 
   ui:
     image: joxit/docker-registry-ui:static
@@ -16,6 +17,7 @@ services:
       - REGISTRY_URL=http://registry:5000
     depends_on:
       - registry
+    restart: always
     networks:
       - registry-ui-net
 
